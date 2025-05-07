@@ -55,7 +55,14 @@ public class Estudiante {
     }
 
     public Estudiante(EstudianteRequestDTO request){
-
+        this.lu = request.getLu();
+        this.ciudad = request.getCiudad();
+        this.genero = request.getGenero();
+        this.edad = request.getEdad();
+        this.apellido = request.getApellido();
+        this.nombre = request.getNombre();
+        this.dni = request.getDni();
+        this.carreras = new ArrayList<>();
     }
 
     @Override
