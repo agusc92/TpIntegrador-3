@@ -1,8 +1,12 @@
 package TpIntegrador.service.dto.estudiante.response;
 
 import TpIntegrador.domain.Estudiante;
+import TpIntegrador.domain.Estudiante_Carrera;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @RequiredArgsConstructor
@@ -14,6 +18,7 @@ public class EstudianteResponseDTO {
     private final String genero;
     private final String ciudad;
     private final int lu;
+    private List<Estudiante_Carrera> carreras;
 
     public EstudianteResponseDTO(Estudiante estudiante) {
         this.dni = estudiante.getDni();
@@ -23,5 +28,7 @@ public class EstudianteResponseDTO {
         this.genero = estudiante.getGenero();
         this.ciudad = estudiante.getCiudad();
         this.lu = estudiante.getLu();
+        this.carreras = new ArrayList<>();
     }
+
 }

@@ -18,6 +18,8 @@ public class EstudianteService {
 
         final var estudiante = new Estudiante(request);
         final var result = this.estudianteRepository.save(estudiante);
-        return new EstudianteResponseDTO(result.getLu(),result.getCiudad(),result.getGenero(),result.getEdad(),result.getApellido(),result.getNombre(),result.getDni());
+        return new EstudianteResponseDTO(result.getDni(),result.getNombre(),result.getApellido(),result.getEdad(),result.getGenero(),result.getCiudad(),result.getLu());
+
+
     }
 }
