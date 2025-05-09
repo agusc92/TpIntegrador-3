@@ -1,5 +1,6 @@
 package TpIntegrador.domain;
 
+import TpIntegrador.service.dto.estudianteCarrera.request.Estudiante_CarreraRequestDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -34,4 +35,13 @@ public class Estudiante_Carrera {
     @ManyToOne ( fetch = FetchType.LAZY )
     @JoinColumn (name = "id_carrera")
     private Carrera carrera;
+
+    public Estudiante_Carrera(Estudiante_CarreraRequestDTO request,Estudiante estudiante, Carrera carrera) {
+
+        this.anio_inscripcion = request.getAnio_inscripcion();
+        this.anio_graduacion = request.getAnio_graduacion();
+        this.antiguedad = request.getAntiguedad();
+        this.estudiante = estudiante;
+        this.carrera = carrera;
+    }
 }

@@ -18,7 +18,7 @@ public class EstudianteResponseDTO {
     private final String genero;
     private final String ciudad;
     private final int lu;
-    private List<Estudiante_Carrera> carreras;
+
 
     public EstudianteResponseDTO(Estudiante estudiante) {
         this.dni = estudiante.getDni();
@@ -28,7 +28,7 @@ public class EstudianteResponseDTO {
         this.genero = estudiante.getGenero();
         this.ciudad = estudiante.getCiudad();
         this.lu = estudiante.getLu();
-        this.carreras = new ArrayList<>();
+
     }
 
 }

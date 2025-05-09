@@ -8,6 +8,8 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class EstudianteService {
@@ -21,5 +23,10 @@ public class EstudianteService {
         return new EstudianteResponseDTO(result.getDni(),result.getNombre(),result.getApellido(),result.getEdad(),result.getGenero(),result.getCiudad(),result.getLu());
 
 
+    }
+    @Transactional
+    public List<EstudianteResponseDTO> findAllByAge() {
+        return this.estudianteRepository.findAllByAge()
+                .stream().map(EstudianteResponseDTO::new).toList();
     }
 }
