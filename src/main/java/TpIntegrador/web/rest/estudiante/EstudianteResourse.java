@@ -5,6 +5,7 @@ import TpIntegrador.service.dto.estudiante.request.EstudianteRequestDTO;
 import TpIntegrador.service.dto.estudiante.response.EstudianteResponseDTO;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EstudianteResourse {
 
+    @Autowired
     private final EstudianteService estudianteService;
 
 
@@ -28,4 +30,13 @@ public class EstudianteResourse {
         return this.estudianteService.findAllByAge();
     }
 
+    @GetMapping("lu/{lu}")
+    public EstudianteResponseDTO findByLu( @PathVariable int lu ){
+        return this.estudianteService.findByLu( lu );
+    }
+
+    @GetMapping("genero/{genero}")
+    public List<EstudianteResponseDTO> filterByGenre(@PathVariable String genero){
+        return this.estudianteService.filterByGenre(genero);
+    }
 }

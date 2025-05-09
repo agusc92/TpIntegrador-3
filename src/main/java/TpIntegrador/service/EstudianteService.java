@@ -6,6 +6,7 @@ import TpIntegrador.service.dto.estudiante.request.EstudianteRequestDTO;
 import TpIntegrador.service.dto.estudiante.response.EstudianteResponseDTO;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,6 +28,18 @@ public class EstudianteService {
     @Transactional
     public List<EstudianteResponseDTO> findAllByAge() {
         return this.estudianteRepository.findAllByAge()
+                .stream().map(EstudianteResponseDTO::new).toList();
+    }
+
+    @Transactional
+    public EstudianteResponseDTO findByLu(int lu) {
+        Estudiante estudiante = this.estudianteRepository.findByLu(lu);
+        System.out.println(estudiante);
+                return new EstudianteResponseDTO(estudiante);
+    }
+    @Transactional
+    public List<EstudianteResponseDTO> filterByGenre(String genre) {
+        return this.estudianteRepository.filterByGenre(genre)
                 .stream().map(EstudianteResponseDTO::new).toList();
     }
 }
