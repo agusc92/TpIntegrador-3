@@ -39,4 +39,8 @@ public class EstudianteResourse {
     public List<EstudianteResponseDTO> filterByGenre(@PathVariable String genero){
         return this.estudianteService.filterByGenre(genero);
     }
+    @GetMapping("/{carrera}/{ciudad}")
+    public List<EstudianteResponseDTO> filterByCarreraCiudad(@PathVariable String carrera, @PathVariable String ciudad){
+        return this.estudianteService.filterByCarreraCiudad(carrera,ciudad);
+    }
 }

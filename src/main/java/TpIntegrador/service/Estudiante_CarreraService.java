@@ -1,18 +1,19 @@
 package TpIntegrador.service;
 
-import TpIntegrador.domain.Estudiante;
 import TpIntegrador.domain.Estudiante_Carrera;
 import TpIntegrador.repository.CarreraRepository;
 import TpIntegrador.repository.EstudianteRepository;
 import TpIntegrador.repository.Estudiante_CarreraRepository;
-import TpIntegrador.service.dto.estudiante.request.EstudianteRequestDTO;
-import TpIntegrador.service.dto.estudiante.response.EstudianteResponseDTO;
+import TpIntegrador.service.dto.carrera.response.CarreraResponseDTO;
 import TpIntegrador.service.dto.estudianteCarrera.request.Estudiante_CarreraRequestDTO;
+import TpIntegrador.service.dto.estudianteCarrera.response.CarreraPorInscriptosResponseDTO;
 import TpIntegrador.service.dto.estudianteCarrera.response.Estudiante_CarreraResponseDTO;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -34,5 +35,10 @@ public class Estudiante_CarreraService {
         return new Estudiante_CarreraResponseDTO(result);
 
 
+    }
+
+    @Transactional
+    public List<CarreraPorInscriptosResponseDTO> findByRegistered() {
+        return this.estudianteCarreraRepository.findByRegistered();
     }
 }

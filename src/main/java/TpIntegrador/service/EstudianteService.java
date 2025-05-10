@@ -34,12 +34,18 @@ public class EstudianteService {
     @Transactional
     public EstudianteResponseDTO findByLu(int lu) {
         Estudiante estudiante = this.estudianteRepository.findByLu(lu);
-        System.out.println(estudiante);
+
                 return new EstudianteResponseDTO(estudiante);
     }
     @Transactional
     public List<EstudianteResponseDTO> filterByGenre(String genre) {
         return this.estudianteRepository.filterByGenre(genre)
+                .stream().map(EstudianteResponseDTO::new).toList();
+    }
+
+    @Transactional
+    public List<EstudianteResponseDTO> filterByCarreraCiudad(String carrera, String ciudad) {
+        return this.estudianteRepository.filterByCarreraCiudad(carrera,ciudad)
                 .stream().map(EstudianteResponseDTO::new).toList();
     }
 }

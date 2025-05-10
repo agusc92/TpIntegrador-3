@@ -33,4 +33,14 @@ public interface EstudianteRepository extends JpaRepository<Estudiante, Long> {
                     "WHERE e.genero = :genero"
     )
     List<Estudiante> filterByGenre(@Param("genero")String genero);
+
+
+    @Query(
+            //String nombre, String apellido, int edad,int dni, String genero,String ciudad , int lu
+            "SELECT new TpIntegrador.domain.Estudiante(ce.estudiante.nombre, ce.estudiante.apellido, ce.estudiante.edad, ce.estudiante.dni, ce.estudiante.genero, ce.estudiante.ciudad, ce.estudiante.lu) " +
+                    "FROM Estudiante_Carrera ce " +
+                    "WHERE ce.carrera.nombre = :carrera " +
+                    "AND ce.estudiante.ciudad = :ciudad"
+    )
+    List<Estudiante>filterByCarreraCiudad(@Param("carrera")String carrera,@Param("ciudad") String ciudad);
 }
