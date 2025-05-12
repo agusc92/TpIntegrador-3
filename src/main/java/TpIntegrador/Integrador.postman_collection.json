@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "34f63853-9027-4688-b04a-23257359db9c",
+		"name": "Integrador",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28124022",
+		"_collection_link": "https://warped-trinity-652216.postman.co/workspace/exampleSpring~e17ea486-1ebc-45b9-950a-75aebbec154f/collection/28124022-34f63853-9027-4688-b04a-23257359db9c?action=share&source=collection_link&creator=28124022"
+	},
+	"item": [
+		{
+			"name": "punto a) matricular estudiante",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"dni\": 30060817,\r\n  \"nombre\": \"Luciana\",\r\n  \"apellido\": \"La Battaglia\",\r\n  \"edad\": 30,\r\n  \"genero\": \"Femenino\",\r\n  \"ciudad\": \"Necochea\",\r\n  \"lu\": 140283\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/estudiantes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"estudiantes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "punto b) inscribir estudiante en carrera",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"anio_inscripcion\": 2022,\r\n  \"anio_graduacion\": 2025,\r\n  \"antiguedad\": 2,\r\n  \"id_carrera\": 1,\r\n  \"dni_estudiante\": 30060817\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/estudiante_carrera",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"estudiante_carrera"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "punto c) estudiantes por edad",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/estudiantes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"estudiantes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "punto d) buscar estudiante por LU",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/estudiantes/lu/72976",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"estudiantes",
+						"lu",
+						"72976"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "punto e) buscar estudiante por genero",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/estudiantes/genero/Male",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"estudiantes",
+						"genero",
+						"Male"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "punto f) carrera por cantidad de inscriptos",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "punto h) reporte carreras",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/carreras/reporte",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"carreras",
+						"reporte"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "punto g) estudiantes filtrados por carrera y ciudad",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/estudiantes/TUDAI/Rauch",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"estudiantes",
+						"TUDAI",
+						"Rauch"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
