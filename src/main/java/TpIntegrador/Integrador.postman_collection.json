@@ -1,10 +1,9 @@
 {
 	"info": {
-		"_postman_id": "34f63853-9027-4688-b04a-23257359db9c",
+		"_postman_id": "1a7aa455-f1a8-40d3-9364-f9b9bcde3a6a",
 		"name": "Integrador",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "28124022",
-		"_collection_link": "https://warped-trinity-652216.postman.co/workspace/exampleSpring~e17ea486-1ebc-45b9-950a-75aebbec154f/collection/28124022-34f63853-9027-4688-b04a-23257359db9c?action=share&source=collection_link&creator=28124022"
+		"_exporter_id": "31875489"
 	},
 	"item": [
 		{
@@ -133,7 +132,10 @@
 			"name": "punto f) carrera por cantidad de inscriptos",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": ""
+				}
 			},
 			"response": []
 		},

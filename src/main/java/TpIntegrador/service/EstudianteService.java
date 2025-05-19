@@ -38,12 +38,14 @@ public class EstudianteService {
 
 
     }
+    //Estudiantes ordenados por edad
     @Transactional
     public List<EstudianteResponseDTO> findAllByAge() {
         return this.estudianteRepository.findAllByAge()
                 .stream().map(EstudianteResponseDTO::new).toList();
     }
 
+    //Estudiante por libreta universitaria
     @Transactional
     public EstudianteResponseDTO findByLu(int lu) {
         Estudiante estudiante = this.estudianteRepository.findByLu(lu)
@@ -52,14 +54,16 @@ public class EstudianteService {
         return new EstudianteResponseDTO(estudiante);
 
     }
+    //Estudiantes por genero
     @Transactional
     public List<EstudianteResponseDTO> filterByGenre(String genre) {
         return this.estudianteRepository.filterByGenre(genre)
                 .stream().map(EstudianteResponseDTO::new).toList();
     }
 
+    //estudiantes por garrera y ciudad
     @Transactional
-    public List<EstudianteResponseDTO> filterByCarreraCiudad(String carrera, String ciudad) {
+    public List<EstudianteResponseDTO> filterByCarreraCiudad(int carrera, String ciudad) {
         return this.estudianteRepository.filterByCarreraCiudad(carrera,ciudad)
                 .stream().map(EstudianteResponseDTO::new).toList();
     }

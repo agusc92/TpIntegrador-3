@@ -48,6 +48,6 @@ public class EstudianteResourse {
     //obtener por carrera y ciudad
     @GetMapping("/{carrera}/{ciudad}")
     public List<EstudianteResponseDTO> filterByCarreraCiudad(@PathVariable String carrera, @PathVariable String ciudad){
-        return this.estudianteService.filterByCarreraCiudad(carrera,ciudad);
+        return this.estudianteService.filterByCarreraCiudad(Integer.parseInt(carrera),ciudad);
     }
 }
