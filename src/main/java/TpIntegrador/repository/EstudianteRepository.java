@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface EstudianteRepository extends JpaRepository<Estudiante, Long> {
@@ -24,7 +25,7 @@ public interface EstudianteRepository extends JpaRepository<Estudiante, Long> {
     @Query(
             "SELECT e FROM Estudiante e WHERE e.lu = :lu"
     )
-    Estudiante findByLu(@Param("lu")int lu);
+    Optional<Estudiante> findByLu(@Param("lu")int lu);
 
     @Query(
 

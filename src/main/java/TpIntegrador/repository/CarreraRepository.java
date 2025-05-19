@@ -40,4 +40,6 @@ public interface CarreraRepository extends JpaRepository<Carrera, Long> {
                     "GROUP BY c.nombre, e.anio_graduacion"
     )
     public List<CarreraReporteResponseDTO> generateReportparte2();
+
+
 }

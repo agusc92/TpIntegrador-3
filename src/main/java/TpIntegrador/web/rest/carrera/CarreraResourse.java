@@ -22,6 +22,7 @@ public class CarreraResourse {
     @Autowired
     CarreraService carreraService;
 
+    //obtener reporte de las carreras con estudiantes inscriptos y egresados por año
     @GetMapping("reporte")
     public List<CarreraReporteResponseDTO> generateReport(){
         return this.carreraService.generateReport();
